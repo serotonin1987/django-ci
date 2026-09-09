@@ -8,3 +8,9 @@ class Product(models.Model):
     quantity = models.IntegerField(default=0)
     def __str__(self):
         return self.name
+class Note(models.Model):
+    title = models.CharField(max_length=255)
+    text = models.TextField()
+
+    def get_created_at(self):
+        return "2024-01-01"
