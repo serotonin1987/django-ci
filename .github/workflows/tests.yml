@@ -24,4 +24,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --suppress-tests-failed-exit-code || true
+          pytest core/tests.py
