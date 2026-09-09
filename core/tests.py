@@ -1,3 +1,5 @@
+from turtle import title
+
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 from core.models import Product
@@ -13,12 +15,17 @@ class Note:
         self.title = title
         self.text = text
 
-    def get_created_at(self):  # Имя без префикса test_
+    def get_created_at(self):
         return "2024-01-01"
 
-
-# 2. Тестовый класс для pytest
 class TestNote(TestCase):
+
+    def test_note_creation(self):
+        Note.objects.create(
+            title="Тестовая заметка!",
+            text="Это тестовая заметка."
+        )
+        self.assertEqual(Note.objects.count(), 1)
 
     def setUp(self):
         # Инициализация объекта перед каждым тестом
